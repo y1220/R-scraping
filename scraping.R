@@ -14,3 +14,16 @@ html_excerpt <- read_html(html_excerpt_raw)
 html_excerpt
 # Print the HTML excerpt with the xml_structure() function
 xml_structure(html_excerpt)
+
+# Read in the corresponding HTML string
+list_raw_html <- "\n<html>\n  <body>\n    <ol>\n      <li>Learn HTML</li>\n      <li>Learn CSS</li>\n      <li>Learn R</li>\n      <li>Scrape everything!*</li>\n    </ol>\n    <small>*Do it responsibly!</small>\n  </body>\n</html>"
+list_html <- read_html(list_raw_html)
+# Extract the ol node
+ol_node <- list_html %>% 
+  html_node('ol')
+# Extract and print the nodeset of all the children of ol_node
+ol_node <- list_html %>% html_node('ol')
+html_children(ol_node)
+
+# trial to see content in tidy way
+xml_structure(list_html)
