@@ -8,12 +8,12 @@ authors <- read_html("https://github.com/tidyverse/ggplot2/commits/main") %>%
   html_nodes(".user-mention") %>% 
   html_text()
 
-titles <- read_html("https://github.com/tidyverse/ggplot2/commits/main") %>%
-  html_nodes(".markdown-title") %>% 
-  html_text()
-
 days <- read_html("https://github.com/tidyverse/ggplot2/commits/main") %>%
   html_nodes("relative-time") %>% 
+  html_text()
+
+titles <- read_html("https://github.com/tidyverse/ggplot2/commits/main") %>%
+  html_nodes(".markdown-title") %>% 
   html_text()
 
 # return set of author and date of commit
